@@ -1,0 +1,1 @@
+double **transpose(int rows, int cols, double **matrix);
