@@ -1,0 +1,23 @@
+name: Build script	
+
+on:							
+  push:
+    branches:
+      - devfunctions1/*
+      - devfunctions2/*
+      - testing/*
+
+jobs:
+  build:						
+    runs-on: ubuntu-latest			
+    steps:
+      - uses: actions/checkout@v4		
+
+      - name: build executable	
+        run: make test; ./test < testInput.txt > testOutput.txt; 	
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4	
+        with:
+          name: Test-Output		
+          path: testOutput.txt	
