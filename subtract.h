@@ -1,0 +1,1 @@
+double **subtract(int rows, int cols, double matrix1[rows][cols], double matrix2[rows][cols]);

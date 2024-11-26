@@ -1,4 +1,4 @@
-int **crossproduct(int m, int n, int p, double matrix1[m][n], double matrix2[n][p]) {
+double **crossproduct(int m, int n, int p, double matrix1[m][n], double matrix2[n][p]) {
     double **result = malloc(m * sizeof(double *));
     for (int i = 0; i < m; i++) {
         result[i] = malloc(p * sizeof(double));

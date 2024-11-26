@@ -1,4 +1,4 @@
-int **subtract(int rows, int cols, double matrix1[rows][cols], double matrix2[rows][cols]) {
+double **subtract(int rows, int cols, double matrix1[rows][cols], double matrix2[rows][cols]) {
     double **result = malloc(rows * sizeof(double *));
     for (int i = 0; i < rows; i++) {
         result[i] = malloc(cols * sizeof(double));
