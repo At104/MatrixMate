@@ -19,3 +19,4 @@ Adjoint of Matrix 1:
 -40 0 20
 28 -6 1
 8 24 -4
+
