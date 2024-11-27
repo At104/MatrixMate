@@ -5,3 +5,5 @@ void output(double *matrix, int *rows, int *columns);
 int listOptions();
 
 double *create_matrix(int rows, int columns);
+
+double *create_matrix_file(int *rows, int *columns, const char *filen);

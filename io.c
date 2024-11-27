@@ -45,7 +45,7 @@ double *create_matrix(int rows, int columns) {
         fprintf(stderr, "Malloc failed");
     }
 
-    char lineBuffer[100];
+    char lineBuffer[1000];
 
     getchar();
     for(int i = 0; i < rows; i++) {
@@ -68,13 +68,63 @@ double *create_matrix(int rows, int columns) {
     return matrix;
 }
 
+double *create_matrix_file(int *rows, int *columns, const char *filen) {
+    *rows = 0;
+    *columns = 0;
+    double *matrix = NULL;
+    FILE *matrixFile = fopen(filen, "r");
+    if(matrixFile == NULL) {
+        fprintf(stderr, "File not open");
+        fclose(matrixFile);
+        return;
+    }
+
+    char lineBuffer[1000];    
+    
+    while (fgets(lineBuffer, sizeof(lineBuffer), matrixFile)) {
+        (*rows)++;
+    }
+
+    if (rows > 0) {
+        fseek(matrixFile, 0, SEEK_SET);
+        if (fgets(lineBuffer, sizeof(lineBuffer), matrixFile)) {
+            char *token = strtok(lineBuffer, " ");
+            while (token != NULL) {
+                (*columns)++;
+                token = strtok(NULL, " ");
+            }
+        }
+    }
+    matrix = malloc((*rows) * (*columns) * sizeof(double));
+
+    fseek(matrixFile, 0, SEEK_SET);
+    for (int i = 0; i < *rows; i++) {
+            for (int j = 0; j < *columns; j++) {
+                // If there is error setting the data
+                if (fscanf(matrixFile, "%lf", &matrix[i * (*columns) + j]) != 1) {
+                    fprintf(stderr, "Problem while reading the data");
+                    free(matrix);
+                    fclose(matrixFile);
+                    return NULL;
+                }
+            }
+    }
+
+    fclose(matrixFile);
+
+    return matrix;
+}
+
 void startInput(int argc, char *argv[], double *matrix1, double *matrix2) {
     int choice = 0;
     int rows = 0;
     int columns = 0;
+    int *rowsPTR = &rows;
+    int *columnsPTR = &columns;
+
+    choice = listOptions();
 
     if(argc == 1) {
-        choice = listOptions();
 
         printf("How many rows and columns are there?\n");
         int result = scanf("%d %d", &rows, &columns);    
@@ -91,7 +141,16 @@ void startInput(int argc, char *argv[], double *matrix1, double *matrix2) {
     }
     else if (argc == 2) {
         if (argv[1][1] == 'f') {
-            printf("File flag\n");
+            if (choice <= 6) {
+                matrix1 = create_matrix_file(rowsPTR, columnsPTR, "matrix1.txt");
+                //output(matrix1, rows, columns);
+            }
+            else if (choice >= 7) {
+                matrix1 = create_matrix_file(rowsPTR, columnsPTR, "matrix1.txt");
+                matrix2 = create_matrix_file(rowsPTR, columnsPTR, "matrix2.txt");
+                //output(matrix1, rows, columns);
+                //output(matrix2, rows, columns);
+            }
         }
     }
     else {
