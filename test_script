@@ -77,8 +77,9 @@ test() {
 }
 
 
-test './MatrixMateCov' 'inverse_testinput.txt' 'inverse_testout.txt' 'inverse_test_err.txt'
-test './MatrixMateCov --help' 'inverse_test_err.txt' 'help.txt' 'inverse_test_err.txt'
+test './MatrixMateCov' 'inverse_testinput.txt' 'inverse_testout.txt' 'empty.txt'
+test './MatrixMateCov' 'inverse_testinput.txt' 'inverse_testout2.txt' 'inverse_test_err2.txt'
+test './MatrixMateCov --help' 'empty.txt' 'help.txt' 'empty.txt'
 
 #Riken
 test './MatrixMateCov' 'transpose_input1.txt' 'transpose_output1.txt' 'transpose_error1.txt'

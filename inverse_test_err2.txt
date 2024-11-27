@@ -1,0 +1,1 @@
+Matrix must be square to have an inverse.
