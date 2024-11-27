@@ -3,7 +3,7 @@
 #include "determinant.h"
 #include "cofactor.h"
 
-double **cofactor(int n, int **matrix) {
+double **cofactor(int n, double **matrix) {
     // Allocate memory for the cofactor matrix
     double **result = (double **)malloc(n * sizeof(double *));
     for (int i = 0; i < n; i++) {

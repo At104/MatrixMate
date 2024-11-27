@@ -4,12 +4,12 @@
 #include "cofactor.h"
 #include "transpose.h"
 
-double **adjoint(int n, int **matrix) {
+double **adjoint(int n, double **matrix) {
     // Step 1: Find the cofactor matrix
     double **cofactorMatrix = cofactor(n, matrix);
 
     // Step 2: Transpose the cofactor matrix
-    double **adjointMatrix = transpose(n, cofactorMatrix);
+    double **adjointMatrix = transpose(n,n, cofactorMatrix);
 
     // Free the cofactor matrix
     for (int i = 0; i < n; i++) {

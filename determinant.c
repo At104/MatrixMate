@@ -3,7 +3,7 @@
 #include "determinant.h"
 
 // Function to calculate the determinant of a matrix
-double determinant(int n, int **matrix) {
+double determinant(int n, double **matrix) {
     if (n == 1) {
         return matrix[0][0]; // Base case for 1x1 matrix
     }

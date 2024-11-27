@@ -4,7 +4,7 @@
 #include "adjoint.h"
 #include "transpose.h"
 
-double **inverse(int n, int **matrix) {
+double **inverse(int n, double **matrix) {
     // Calculate the determinant
     double det = determinant(n, matrix);
     if (det == 0) {
@@ -32,3 +32,4 @@ double **inverse(int n, int **matrix) {
     free(adjointMatrix);
 
     return result;
+}

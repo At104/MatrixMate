@@ -1,1 +1,1 @@
-double **inverse(int n, int **matrix);
+double **inverse(int n, double **matrix);

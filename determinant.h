@@ -1,1 +1,1 @@
-double determinant(int n, int **matrix);
+double determinant(int n, double **matrix);
