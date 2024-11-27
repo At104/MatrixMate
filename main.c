@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "input.h"
 #include "adjoint.h"
 #include "cofactor.h"
@@ -23,10 +24,35 @@ int main(int argc, char *argv[]) {
     double **matrix1 = NULL;
     double **matrix2 = NULL;
 
+    if (argc > 1 && strcmp(argv[1], "--help") == 0) {
+        printf("Usage: %s\n", argv[0]);
+        printf("This program performs various matrix operations.\n");
+        printf("Options:\n");
+        printf("  --help          Display this help message\n");
+        printf("  1               Inverse of Matrix 1\n");
+        printf("  2               Adjoint of Matrix 1\n");
+        printf("  3               Co-Factors of Matrix 1\n");
+        printf("  4               Transpose of Matrix 1\n");
+        printf("  5               Trace of Matrix 1\n");
+        printf("  6               Scalar Multiplication of Matrix 1\n");
+        printf("  The user will then be prompted for the number of rows and columns in the matrix.\n");
+        /**
+        printf("  7               Addition of Matrix 1 and Matrix 2\n");
+        printf("  8               Subtraction of Matrix 1 and Matrix 2\n");
+        printf("  9               Dot Product of Matrix 1 and Matrix 2\n");
+        printf("  10              Cross Product of Matrix 1 and Matrix 2\n");
+         */
+        return EXIT_SUCCESS;
+    }
+
     handle_input(&matrix1, &matrix2, &rows, &columns, &choice);
 
     switch (choice) {
         case 1: {
+            if (rows != columns) {
+                fprintf(stderr, "Matrix must be square to have an inverse.\n");
+                return EXIT_FAILURE;
+            }
             double **result = inverse(rows, matrix1);
             printf("Inverse of Matrix 1:\n");
             print_matrix(result, rows, rows);
@@ -37,6 +63,10 @@ int main(int argc, char *argv[]) {
             break;
         }
         case 2: {
+            if (rows != columns) {
+                fprintf(stderr, "Matrix must be square to have an adjoint.\n");
+                return EXIT_FAILURE;
+            }
             double **result = adjoint(rows, matrix1);
             printf("Adjoint of Matrix 1:\n");
             print_matrix(result, rows, rows);
@@ -47,6 +77,10 @@ int main(int argc, char *argv[]) {
             break;
         }
         case 3: {
+            if (rows != columns) {
+                fprintf(stderr, "Matrix must be square to have co-factors.\n");
+                return EXIT_FAILURE;
+            }
             double **result = cofactor(rows, matrix1);
             printf("Co-Factors of Matrix 1:\n");
             print_matrix(result, rows, rows);
@@ -69,6 +103,10 @@ int main(int argc, char *argv[]) {
         
         
         case 5: {
+            if (rows != columns) {
+                fprintf(stderr, "Matrix must be square to have a trace.\n");
+                return EXIT_FAILURE;
+            }
             double trace_value = trace(rows, matrix1);
             printf("Trace of Matrix 1: %.3f\n", trace_value);
             break;
