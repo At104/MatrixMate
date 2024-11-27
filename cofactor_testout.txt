@@ -14,9 +14,4 @@ Enter matrix operation: (Just enter the number)
 Enter the number of rows and columns:
 Enter row 1 of your Matrix (space-separated values):
 Enter row 2 of your Matrix (space-separated values):
-Enter row 3 of your Matrix (space-seperated values):
-Co-Factor of Matrix 1:
-1.000 8.000 -7.000 
--2.000 -8.000 8.000 
-3.000 6.000 -7.000 
 
