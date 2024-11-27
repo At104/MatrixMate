@@ -1,0 +1,21 @@
+Enter matrix operation: (Just enter the number)
+---One Matrix Operations---
+(1) Inverse
+(2) Adjoint
+(3) Co-Factors
+(4) Transpose
+(5) Trace
+(6) Scalar Multiplication
+---Two Matrix Operations---
+(7) Matrix Addition
+(8) Matrix Subtraction
+(9) Dot Product
+(10) Cross Product
+Enter the number of rows and columns:
+Enter row 1 of your Matrix (space-separated values):
+Enter row 2 of your Matrix (space-separated values):
+Enter row 3 of your Matrix (space-separated values):
+Transpose of Matrix 1:
+1 4 7 
+2 5 8 
+3 6 9 
