@@ -1,0 +1,1 @@
+double **adjoint(int n, int **matrix);

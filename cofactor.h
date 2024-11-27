@@ -1,0 +1,1 @@
+double **cofactor(int n, int **matrix);
