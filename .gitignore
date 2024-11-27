@@ -1,2 +1,7 @@
 MatrixMate
+MatrixMateCov
+out.txt
 .vscode
+*.gcno
+*.gcda
+*.gcov

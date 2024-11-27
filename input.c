@@ -72,7 +72,7 @@ int listOptions() {
 void handle_input(double ***matrix1, double ***matrix2, int *rows, int *columns, int *choice) {
     *choice = listOptions();
 
-    printf("Enter the number of rows and columns: ");
+    printf("Enter the number of rows and columns:\n");
     scanf("%d %d", rows, columns);
 
     if (*rows <= 0 || *columns <= 0) {

@@ -12,19 +12,34 @@ jobs:
       - uses: actions/checkout@v4		
 
       - name: build executable	
-        run: make -j MatrixMate; 	
+        run: make -j MatrixMate; 
 
       - name: build coverage executable
-        run: make -j MatrixMateCov;
+        run: make -j MatrixMateCov; 
 
-      - name: Upload test results
+      - name: Upload base binary
         uses: actions/upload-artifact@v4	
         with:
-          name: Test-Output		
-          path: testOutput.txt	
+          name: MatrixMate	
+          path: ./MatrixMate
 
-      - name: Upload code coverage
+      - name: Upload coverage binary
         uses: actions/upload-artifact@v4
         with:
-          name: Coverage-Report
+          name: MatrixMateCov
+          path: ./MatrixMateCov
+
+      - name: Run tests
+        run: ./test_script > test_output.txt ; gcov MatrixMateCov-main.c
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test_output
+          path: test_output.txt
+
+      - name: Upload coverage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage_results
           path: main.c.gcov
