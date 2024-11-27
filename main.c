@@ -6,9 +6,14 @@
 #include "determinant.h"
 #include "transpose.h"
 #include "inverse.h"
+#include "trace.h"
+#include "scalar_multiplication.h"
 
 /**
- * Main function
+ * Main function to handle input and call the appropriate function
+ * @param argc Number of command line arguments
+ * @param argv Command line arguments
+ * @return EXIT_SUCCESS if the program runs successfully
  */
 int main(int argc, char *argv[]) {
     int rows = 0;
@@ -61,8 +66,8 @@ int main(int argc, char *argv[]) {
             free(result);
             break;
         }
-        /** 
-         * //TODO: Implement the following functions
+        
+        
         case 5: {
             double trace_value = trace(rows, matrix1);
             printf("Trace of Matrix 1: %.3f\n", trace_value);
@@ -70,9 +75,9 @@ int main(int argc, char *argv[]) {
         }
         case 6: {
             double scalar;
-            printf("Enter the scalar value: ");
+            printf("Enter the scalar value:\n");
             scanf("%lf", &scalar);
-            double **result = scalar_multiplication(rows, columns, matrix1, scalar);
+            double **result = scalar_multiplication(rows, columns, scalar, matrix1);
             printf("Scalar Multiplication of Matrix 1:\n");
             print_matrix(result, rows, columns);
             for (int i = 0; i < rows; i++) {
@@ -81,8 +86,9 @@ int main(int argc, char *argv[]) {
             free(result);
             break;
         }
-        
-        
+
+        //TODO: Implement the following functions, move the switch case to its own function
+        /** 
         case 7: {
             double **result = add(rows, columns, matrix1, matrix2);
             printf("Addition of Matrix 1 and Matrix 2:\n");
@@ -124,22 +130,23 @@ int main(int argc, char *argv[]) {
             break;
         }
         */
-        default:
-            printf("Invalid choice\n");
-            break;
+        
     }
 
     // Free allocated memory
     for (int i = 0; i < rows; i++) {
         free(matrix1[i]);
+        /** 
         if (matrix2 != NULL) {
             free(matrix2[i]);
         }
+        */
     }
     free(matrix1);
+    /** 
     if (matrix2 != NULL) {
         free(matrix2);
     }
-
+    */
     return EXIT_SUCCESS;
 }

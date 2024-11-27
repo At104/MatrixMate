@@ -88,6 +88,7 @@ void handle_input(double ***matrix1, double ***matrix2, int *rows, int *columns,
         }
         *matrix2 = NULL;
     } 
+    
     else if (*choice >= 7 && *choice <= 10) {
         *matrix1 = create_matrix(*rows, *columns);
         if (*matrix1 == NULL) {

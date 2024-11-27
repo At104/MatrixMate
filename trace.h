@@ -1,0 +1,1 @@
+double trace(int rows, double **matrix);
