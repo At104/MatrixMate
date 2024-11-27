@@ -1,4 +1,8 @@
-double trace(int rows, double matrix[rows][rows]) {
+#include <stdio.h>
+#include <stdlib.h>
+#include "trace.h"
+
+double trace(int rows, double **matrix) {
     
     double sum=0;
 

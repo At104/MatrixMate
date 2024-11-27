@@ -1,4 +1,8 @@
-double **dotproduct(int rows, int cols, double matrix1[rows][cols], double matrix2[rows][cols]) {
+#include <stdio.h>
+#include <stdlib.h>
+#include "dot_product.h"
+
+double **dot_product(int rows, int cols, double **matrix1, double **matrix2) {
     double **result = malloc(rows * sizeof(double *));
     for (int i = 0; i < rows; i++) {
         result[i] = malloc(cols * sizeof(double));

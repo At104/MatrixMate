@@ -1,1 +1,1 @@
-int **scalar_multiplication(int rows, int cols, double scalar, double matrix[rows][cols]);
+double **scalar_multiplication(int rows, int cols, double scalar, double **matrix);

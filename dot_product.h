@@ -1,0 +1,1 @@
+double **dot_product(int rows, int cols, double **matrix1, double **matrix2);

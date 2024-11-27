@@ -1,1 +1,0 @@
-double **crossproduct(int m, int n, int p, double matrix1[m][n], double matrix2[n][p]);
