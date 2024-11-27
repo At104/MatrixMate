@@ -15,5 +15,5 @@ Enter the number of rows and columns:
 Enter row 1 of your Matrix (space-separated values):
 Enter row 2 of your Matrix (space-separated values):
 Product of Matrix 1:
-6 9 12 3 21
-18 12 24 9 27
+6.000 9.000 12.000 3.000 21.000
+18.000 12.000 24.000 9.000 27.000
