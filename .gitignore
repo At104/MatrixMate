@@ -1,6 +1,8 @@
 MatrixMate
 MatrixMateCov
 out.txt
+test_out.txt
+test_err.txt
 .vscode
 *.gcno
 *.gcda

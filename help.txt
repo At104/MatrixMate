@@ -1,0 +1,11 @@
+Usage: ./MatrixMate
+This program performs various matrix operations.
+Options:
+  --help          Display this help message
+  1               Inverse of Matrix 1
+  2               Adjoint of Matrix 1
+  3               Co-Factors of Matrix 1
+  4               Transpose of Matrix 1
+  5               Trace of Matrix 1
+  6               Scalar Multiplication of Matrix 1
+  The user will then be prompted for the number of rows and columns in the matrix.

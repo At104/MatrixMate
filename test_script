@@ -78,9 +78,27 @@ test() {
 
 
 test './MatrixMateCov' 'inverse_testinput.txt' 'inverse_testout.txt' 'inverse_test_err.txt'
+test './MatrixMateCov --help' 'inverse_test_err.txt' 'help.txt' 'inverse_test_err.txt'
+
+#Riken
+test './MatrixMateCov' 'transpose_input1.txt' 'transpose_output1.txt' 'transpose_error1.txt'
+test './MatrixMateCov' 'transpose_input2.txt' 'transpose_output2.txt' 'transpose_error2.txt'
+test './MatrixMateCov' 'transpose_input3.txt' 'transpose_output3.txt' 'transpose_error3.txt'
+test './MatrixMateCov' 'transpose_input4.txt' 'transpose_output4.txt' 'transpose_error4.txt'
+
+#Dharav
+test './MatrixMateCov' 'cofactor_test_input1.txt' 'cofactor_testout1.txt' 'cofactor_test_err1.txt'
+test './MatrixMateCov' 'adjoint_test_input1.txt' 'adjoint_testout1.txt' 'adjoint_test_err1.txt'
+
+#Rushil
+test './MatrixMateCov' 'trace_testinput.txt' 'trace_testout.txt' 'empty.txt'
+test './MatrixMateCov' 'scalar_multiplication_testinput.txt' 'scalar_multiplication_testout.txt' 'empty.txt'
+
+
+
 
 # clean up
-rm test_err.txt test_out.txt
+# rm test_err.txt test_out.txt
 
 # return code
 exit $fails

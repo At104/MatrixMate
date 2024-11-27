@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     double **matrix2 = NULL;
 
     if (argc > 1 && strcmp(argv[1], "--help") == 0) {
-        printf("Usage: %s\n", argv[0]);
+        printf("Usage: ./MatrixMate\n");
         printf("This program performs various matrix operations.\n");
         printf("Options:\n");
         printf("  --help          Display this help message\n");
