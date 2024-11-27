@@ -1,11 +1,9 @@
-name: Build script for the branches (not main)
+name: Build script
 
 on:							
   push:
-    branches:
-      - devfunctions1/*
-      - devfunctions2/*
-      - testing/*
+    branches: [ "main", "devfunctions1", "devfunctions2", "testing"]
+      
 
 jobs:
   build:						
@@ -16,8 +14,17 @@ jobs:
       - name: build executable	
         run: make MatrixMate; ./MatrixMate > testOutput.txt; 	
 
+      - name: build coverage executable
+        run: make MatrixMateCov; ./MatrixMate; gcov main-main.c
+
       - name: Upload test results
         uses: actions/upload-artifact@v4	
         with:
           name: Test-Output		
           path: testOutput.txt	
+
+      - name: Upload code coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: Coverage-Report
+          path: main.c.gcov
