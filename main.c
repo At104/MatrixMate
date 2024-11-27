@@ -9,8 +9,8 @@ int main(int argc, char *argv[]) {
     int rowsPTR = &rows;
     int columnsPTR = &columns;
 
-    double *matrix1 = NULL;
-    double *matrix2 = NULL;
+    double **matrix1 = NULL;
+    double **matrix2 = NULL;
 
     startInput(argc, argv, matrix1, matrix2);
     return 1;

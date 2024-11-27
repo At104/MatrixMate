@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-void output(double *matrix, int rows, int columns) {
+void output(double **matrix, int rows, int columns) {
     if (matrix == NULL) {
         return;
     }
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
-            printf("%.3f ", matrix[i * (columns) + j]);
+            printf("%.3f ", matrix[i][j]);
         }
         printf("\n");
     }
@@ -36,13 +36,20 @@ int listOptions() {
     return choice;
 }
 
-double *create_matrix(int rows, int columns) {
-    double *matrix = NULL;
+double **create_matrix(int rows, int columns) {
+    double **matrix = NULL;
     char *token;
 
-    matrix = malloc(rows * columns * sizeof(double));
+    matrix = malloc(rows * sizeof(double *));
     if (matrix == NULL) {
         fprintf(stderr, "Malloc failed");
+    }
+
+    for (int i = 0; i < rows; i++) {
+        matrix[i] = malloc(columns * sizeof(double));
+        if (matrix[i] == NULL) {
+            fprintf(stderr, "Malloc failed");
+        }
     }
 
     char lineBuffer[1000];
@@ -59,7 +66,7 @@ double *create_matrix(int rows, int columns) {
                 fprintf(stderr, "token null\n");
                 return;
             }
-            matrix[i * (columns) + j] = strtod(token, NULL);
+            matrix[i][j] = strtod(token, NULL);
             token = strtok(NULL, " ");
         }
 
@@ -68,10 +75,10 @@ double *create_matrix(int rows, int columns) {
     return matrix;
 }
 
-double *create_matrix_file(int *rows, int *columns, const char *filen) {
+double **create_matrix_file(int *rows, int *columns, const char *filen) {
     *rows = 0;
     *columns = 0;
-    double *matrix = NULL;
+    double **matrix = NULL;
     FILE *matrixFile = fopen(filen, "r");
     if(matrixFile == NULL) {
         fprintf(stderr, "File not open");
@@ -95,13 +102,21 @@ double *create_matrix_file(int *rows, int *columns, const char *filen) {
             }
         }
     }
-    matrix = malloc((*rows) * (*columns) * sizeof(double));
+
+    matrix = malloc((*rows) * sizeof(double *));
+
+    for (int i = 0; i < (*rows); i++) {
+        matrix[i] = malloc((*columns) * sizeof(double));
+        if (matrix[i] == NULL) {
+            fprintf(stderr, "Malloc failed");
+        }
+    }
 
     fseek(matrixFile, 0, SEEK_SET);
     for (int i = 0; i < *rows; i++) {
             for (int j = 0; j < *columns; j++) {
                 // If there is error setting the data
-                if (fscanf(matrixFile, "%lf", &matrix[i * (*columns) + j]) != 1) {
+                if (fscanf(matrixFile, "%lf", &matrix[i][j]) != 1) {
                     fprintf(stderr, "Problem while reading the data");
                     free(matrix);
                     fclose(matrixFile);
@@ -115,7 +130,7 @@ double *create_matrix_file(int *rows, int *columns, const char *filen) {
     return matrix;
 }
 
-void startInput(int argc, char *argv[], double *matrix1, double *matrix2) {
+void startInput(int argc, char *argv[], double **matrix1, double **matrix2) {
     int choice = 0;
     int rows = 0;
     int columns = 0;
@@ -131,25 +146,28 @@ void startInput(int argc, char *argv[], double *matrix1, double *matrix2) {
 
         if (choice <= 6) {
             matrix1 = create_matrix(rows, columns);
+            output(matrix1, rows, columns);
         }
         else if (choice >= 7) {
             printf("MATRIX 1\n");
             matrix1 = create_matrix(rows, columns);
             printf("MATRIX 2\n");
             matrix2 = create_matrix(rows, columns);
+            output(matrix1, rows, columns);
+            output(matrix2, rows, columns);
         }
     }
     else if (argc == 2) {
         if (argv[1][1] == 'f') {
             if (choice <= 6) {
                 matrix1 = create_matrix_file(rowsPTR, columnsPTR, "matrix1.txt");
-                //output(matrix1, rows, columns);
+                output(matrix1, rows, columns);
             }
             else if (choice >= 7) {
                 matrix1 = create_matrix_file(rowsPTR, columnsPTR, "matrix1.txt");
                 matrix2 = create_matrix_file(rowsPTR, columnsPTR, "matrix2.txt");
-                //output(matrix1, rows, columns);
-                //output(matrix2, rows, columns);
+                output(matrix1, rows, columns);
+                output(matrix2, rows, columns);
             }
         }
     }
