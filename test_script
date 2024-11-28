@@ -78,7 +78,7 @@ test() {
 
 
 test './MatrixMateCov' 'inverse_testinput.txt' 'inverse_testout.txt' 'empty.txt'
-test './MatrixMateCov' 'inverse_testinput.txt' 'inverse_testout2.txt' 'inverse_test_err2.txt'
+test './MatrixMateCov' 'inverse_testinput2.txt' 'inverse_testout2.txt' 'inverse_test_err2.txt'
 test './MatrixMateCov --help' 'empty.txt' 'help.txt' 'empty.txt'
 
 #Riken
@@ -92,14 +92,14 @@ test './MatrixMateCov' 'cofactor_test_input1.txt' 'cofactor_testout1.txt' 'cofac
 test './MatrixMateCov' 'adjoint_test_input1.txt' 'adjoint_testout1.txt' 'adjoint_test_err1.txt'
 
 #Rushil
-test './MatrixMateCov' 'trace_testinput.txt' 'trace_testout.txt' 'empty.txt'
+test './MatrixMateCov' 'trace_input.txt' 'trace_output.txt' 'empty.txt'
 test './MatrixMateCov' 'scalar_multiplication_testinput.txt' 'scalar_multiplication_testout.txt' 'empty.txt'
 
 
 
 
 # clean up
-# rm test_err.txt test_out.txt
+rm test_err.txt test_out.txt
 
 # return code
 exit $fails

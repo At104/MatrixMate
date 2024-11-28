@@ -63,10 +63,12 @@ int main(int argc, char *argv[]) {
             break;
         }
         case 2: {
+            /** 
             if (rows != columns) {
                 fprintf(stderr, "Matrix must be square to have an adjoint.\n");
                 return EXIT_FAILURE;
             }
+            */
             double **result = adjoint(rows, matrix1);
             printf("Adjoint of Matrix 1:\n");
             print_matrix(result, rows, rows);
@@ -108,7 +110,7 @@ int main(int argc, char *argv[]) {
                 return EXIT_FAILURE;
             }
             double trace_value = trace(rows, matrix1);
-            printf("Trace of Matrix 1: %.3f\n", trace_value);
+            printf("Trace of Matrix 1: %.3f\n", trace_value);         
             break;
         }
         case 6: {
