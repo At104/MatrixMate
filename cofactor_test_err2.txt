@@ -1,0 +1,2 @@
+Matrix must be square to have co-factors.
+
