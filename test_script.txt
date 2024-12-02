@@ -79,6 +79,7 @@ test() {
 
 test './MatrixMateCov' 'trace_testinput.txt' 'trace_testout.txt' 'empty.txt'
 test './MatrixMateCov' 'scalar_multiplication_testinput.txt' 'scalar_multiplication_testout.txt' 'empty.txt'
+test './MatrixMateCov' 'trace_testinput2.txt' 'trace_testout2.txt' 'trace_err_out.txt'
 
 # clean up
 rm test_err.txt test_out.txt
