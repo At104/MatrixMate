@@ -1,0 +1,1 @@
+Matrix 1 and Matrix 2 must have the same dimensions for subtraction.
