@@ -38,6 +38,9 @@ int listOptions() {
 
     while (choice < 1 || choice > 9) {
         result = scanf("%d", &choice);
+        if (result==EOF){
+            exit(0);
+        }
         if (result < 1) {
             fprintf(stderr, "Enter a number 1-9 to choose\n");
         }
