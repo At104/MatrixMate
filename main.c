@@ -167,7 +167,7 @@ int main(int argc, char *argv[]) {
             }
             double **result = matrix_multiplication(rows, columns, rows2, matrix1, matrix2);
             printf("Multiplication of Matrix 1 and Matrix 2:\n");
-            print_matrix(result, rows, columns);
+            print_matrix(result, rows, columns2);
             for (int i = 0; i < rows; i++) {
                 free(result[i]);
             }
