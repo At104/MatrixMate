@@ -9,6 +9,9 @@
 #include "inverse.h"
 #include "trace.h"
 #include "scalar_multiplication.h"
+#include "add.h"
+#include "subtract.h"
+#include "matrix_multiplication.h"
 
 /**
  * Main function to handle input and call the appropriate function
@@ -18,7 +21,9 @@
  */
 int main(int argc, char *argv[]) {
     int rows = 0;
+    int rows2 = 0;
     int columns = 0;
+    int columns2 = 0;
     int choice = 0;
 
     double **matrix1 = NULL;
@@ -37,7 +42,7 @@ int main(int argc, char *argv[]) {
         printf("  6               Scalar Multiplication of Matrix 1\n");
         printf("  The user will then be prompted for the number of rows and columns in the matrix.\n");
         /**
-        printf("  7               Addition of Matrix 1 and Matrix 2\n");
+        printf("  7               AWddition of Matrix 1 and Matrix 2\n");
         printf("  8               Subtraction of Matrix 1 and Matrix 2\n");
         printf("  9               Dot Product of Matrix 1 and Matrix 2\n");
         printf("  10              Cross Product of Matrix 1 and Matrix 2\n");
@@ -45,7 +50,7 @@ int main(int argc, char *argv[]) {
         return EXIT_SUCCESS;
     }
 
-    handle_input(&matrix1, &matrix2, &rows, &columns, &choice);
+    handle_input(&matrix1, &matrix2, &rows, &columns, &rows2, &columns2, &choice);
 
     switch (choice) {
         case 1: {
@@ -63,12 +68,12 @@ int main(int argc, char *argv[]) {
             break;
         }
         case 2: {
-            /** 
+            
             if (rows != columns) {
                 fprintf(stderr, "Matrix must be square to have an adjoint.\n");
                 return EXIT_FAILURE;
             }
-            */
+            
             double **result = adjoint(rows, matrix1);
             printf("Adjoint of Matrix 1:\n");
             print_matrix(result, rows, rows);
@@ -126,10 +131,12 @@ int main(int argc, char *argv[]) {
             free(result);
             break;
         }
-
-        //TODO: Implement the following functions, move the switch case to its own function
-        /** 
+        
         case 7: {
+            if (rows != rows2 || columns != columns2) {
+                fprintf(stderr, "Matrix 1 and Matrix 2 must have the same dimensions for addition.\n");
+                return EXIT_FAILURE;
+            }
             double **result = add(rows, columns, matrix1, matrix2);
             printf("Addition of Matrix 1 and Matrix 2:\n");
             print_matrix(result, rows, columns);
@@ -140,6 +147,10 @@ int main(int argc, char *argv[]) {
             break;
         }
         case 8: {
+            if (rows != rows2 || columns != columns2) {
+                fprintf(stderr, "Matrix 1 and Matrix 2 must have the same dimensions for subtraction.\n");
+                return EXIT_FAILURE;
+            }
             double **result = subtract(rows, columns, matrix1, matrix2);
             printf("Subtraction of Matrix 1 and Matrix 2:\n");
             print_matrix(result, rows, columns);
@@ -150,8 +161,12 @@ int main(int argc, char *argv[]) {
             break;
         }
         case 9: {
-            double **result = multiply(rows, columns, matrix1, matrix2);
-            printf("Dot Product of Matrix 1 and Matrix 2:\n");
+            if (columns != rows2) {
+                fprintf(stderr, "Matrix 1 columns must equal Matrix 2 rows for multiplication.\n");
+                return EXIT_FAILURE;
+            }
+            double **result = matrix_multiplication(rows, columns, rows2, matrix1, matrix2);
+            printf("Multiplication of Matrix 1 and Matrix 2:\n");
             print_matrix(result, rows, columns);
             for (int i = 0; i < rows; i++) {
                 free(result[i]);
@@ -159,34 +174,25 @@ int main(int argc, char *argv[]) {
             free(result);
             break;
         }
-        case 10: {
-            double **result = cross_product(rows, columns, matrix1, matrix2);
-            printf("Cross Product of Matrix 1 and Matrix 2:\n");
-            print_matrix(result, rows, columns);
-            for (int i = 0; i < rows; i++) {
-                free(result[i]);
-            }
-            free(result);
-            break;
-        }
-        */
+        
+        
         
     }
 
     // Free allocated memory
     for (int i = 0; i < rows; i++) {
         free(matrix1[i]);
-        /** 
+        
         if (matrix2 != NULL) {
             free(matrix2[i]);
         }
-        */
+        
     }
     free(matrix1);
-    /** 
+    
     if (matrix2 != NULL) {
         free(matrix2);
     }
-    */
+    
     return EXIT_SUCCESS;
 }

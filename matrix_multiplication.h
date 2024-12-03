@@ -1,0 +1,1 @@
+double **matrix_multiplication(int rows1, int columns1, int rows2, double **matrix1, double **matrix2);
