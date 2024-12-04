@@ -9,10 +9,9 @@ Enter matrix operation: (Just enter the number)
 ---Two Matrix Operations---
 (7) Matrix Addition
 (8) Matrix Subtraction
-(9) Dot Product
-(10) Cross Product
-Enter the number of rows and columns:
-Enter row 1 of your Matrix (space-separated values):
-Enter row 2 of your Matrix (space-separated values):
-Enter row 3 of your Matrix (space-separated values):
-Enter row 4 of your Matrix (space-separated values):
+(9) Matrix Multiplication
+Enter the number of rows and columns for Matrix 1: 
+Enter row 1 of your Matrix 1 (space-separated values):
+Enter row 2 of your Matrix 1 (space-separated values):
+Enter row 3 of your Matrix 1 (space-separated values):
+Enter row 4 of your Matrix 1 (space-separated values):

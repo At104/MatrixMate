@@ -89,14 +89,16 @@ test './MatrixMateCov' 'transpose_input4.txt' 'transpose_output4.txt' 'transpose
 
 #Dharav
 test './MatrixMateCov' 'cofactor_test_input1.txt' 'cofactor_testout1.txt' 'cofactor_test_err1.txt'
+test './MatrixMateCov' 'cofactor_test_input2.txt' 'cofactor_testout2.txt' 'cofactor_test_err2.txt'
 test './MatrixMateCov' 'adjoint_test_input1.txt' 'adjoint_testout1.txt' 'adjoint_test_err1.txt'
+test './MatrixMateCov' 'adjoint_test_input2.txt' 'adjoint_testout2.txt' 'adjoint_test_err2.txt'
 
 #Rushil
 test './MatrixMateCov' 'trace_testinput.txt' 'trace_testout.txt' 'empty.txt'
 test './MatrixMateCov' 'scalar_multiplication_testinput.txt' 'scalar_multiplication_testout.txt' 'empty.txt'
-test './MatrixMateCov' 'add_testinput.txt' 'add_testout2.txt' 'empty.txt'
-test './MatrixMateCov' 'subtract_testinput.txt' 'subtract_testout2.txt' 'empty.txt'
-test './MatrixMateCov' 'multiply_testinput.txt' 'multiply_testout2.txt' 'empty.txt'
+test './MatrixMateCov' 'add_testinput.txt' 'add_testout.txt' 'empty.txt'
+test './MatrixMateCov' 'subtract_testinput.txt' 'subtract_testout.txt' 'empty.txt'
+test './MatrixMateCov' 'multiply_testinput.txt' 'multiply_testout.txt' 'empty.txt'
 test './MatrixMateCov' 'trace_testinput2.txt' 'trace_testout2.txt' 'trace_err_out.txt'
 test './MatrixMateCov' 'add_testinput2.txt' 'add_testout2.txt' 'add_err_out.txt'
 test './MatrixMateCov' 'subtract_testinput2.txt' 'subtract_testout2.txt' 'subtract_err_out.txt'

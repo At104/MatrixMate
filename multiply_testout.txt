@@ -10,7 +10,9 @@ Enter matrix operation: (Just enter the number)
 (7) Matrix Addition
 (8) Matrix Subtraction
 (9) Matrix Multiplication
-Enter the number of rows and columns for Matrix 1: Enter the number of rows and columns for Matrix 2: Enter row 1 of your Matrix 1 (space-separated values):
+Enter the number of rows and columns for Matrix 1: 
+Enter the number of rows and columns for Matrix 2: 
+Enter row 1 of your Matrix 1 (space-separated values):
 Enter row 2 of your Matrix 1 (space-separated values):
 Enter row 3 of your Matrix 1 (space-separated values):
 Enter row 1 of your Matrix 2 (space-separated values):

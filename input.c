@@ -53,7 +53,7 @@ int listOptions() {
 void handle_input(double ***matrix1, double ***matrix2, int *rows, int *columns, int *rows2, int *columns2, int *choice) {
     *choice = listOptions();
 
-    printf("Enter the number of rows and columns for Matrix 1: ");
+    printf("Enter the number of rows and columns for Matrix 1: \n");
     scanf("%d %d", rows, columns);
 
     if (*choice <= 6) {
@@ -70,7 +70,7 @@ void handle_input(double ***matrix1, double ***matrix2, int *rows, int *columns,
             return;
         }
 
-        printf("Enter the number of rows and columns for Matrix 2: ");
+        printf("Enter the number of rows and columns for Matrix 2: \n");
         scanf("%d %d", rows2, columns2);
 
         *matrix2 = create_matrix(*rows2, *columns2);
