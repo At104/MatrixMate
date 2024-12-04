@@ -92,11 +92,15 @@ test './MatrixMateCov' 'cofactor_test_input1.txt' 'cofactor_testout1.txt' 'cofac
 test './MatrixMateCov' 'adjoint_test_input1.txt' 'adjoint_testout1.txt' 'adjoint_test_err1.txt'
 
 #Rushil
-test './MatrixMateCov' 'trace_input.txt' 'trace_output.txt' 'empty.txt'
+test './MatrixMateCov' 'trace_testinput.txt' 'trace_testout.txt' 'empty.txt'
 test './MatrixMateCov' 'scalar_multiplication_testinput.txt' 'scalar_multiplication_testout.txt' 'empty.txt'
-
-
-
+test './MatrixMateCov' 'add_testinput.txt' 'add_testout2.txt' 'empty.txt'
+test './MatrixMateCov' 'subtract_testinput.txt' 'subtract_testout2.txt' 'empty.txt'
+test './MatrixMateCov' 'multiply_testinput.txt' 'multiply_testout2.txt' 'empty.txt'
+test './MatrixMateCov' 'trace_testinput2.txt' 'trace_testout2.txt' 'trace_err_out.txt'
+test './MatrixMateCov' 'add_testinput2.txt' 'add_testout2.txt' 'add_err_out.txt'
+test './MatrixMateCov' 'subtract_testinput2.txt' 'subtract_testout2.txt' 'subtract_err_out.txt'
+test './MatrixMateCov' 'multiply_testinput2.txt' 'multiply_testout2.txt' 'multiply_err_out.txt'
 
 # clean up
 rm test_err.txt test_out.txt
