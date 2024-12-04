@@ -1,0 +1,25 @@
+Enter matrix operation: (Just enter the number)
+---One Matrix Operations---
+(1) Inverse
+(2) Adjoint
+(3) Co-Factors
+(4) Transpose
+(5) Trace
+(6) Scalar Multiplication
+---Two Matrix Operations---
+(7) Matrix Addition
+(8) Matrix Subtraction
+(9) Matrix Multiplication
+Enter the number of rows and columns for Matrix 1: Enter the number of rows and columns for Matrix 2: Enter row 1 of your Matrix 1 (space-separated values):
+Enter row 2 of your Matrix 1 (space-separated values):
+Enter row 3 of your Matrix 1 (space-separated values):
+Enter row 4 of your Matrix 1 (space-separated values):
+Enter row 1 of your Matrix 2 (space-separated values):
+Enter row 2 of your Matrix 2 (space-separated values):
+Enter row 3 of your Matrix 2 (space-separated values):
+Enter row 4 of your Matrix 2 (space-separated values):
+Subtraction of Matrix 1 and Matrix 2:
+-10.000 -19.000 -27.000 
+-126.000 4.000 -13.000 
+-41.000 -20.000 -59.000 
+-12.000 11.000 7.000 
