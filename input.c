@@ -36,19 +36,23 @@ int listOptions() {
     int choice = 0;
     int result = 0;
 
-    while (choice < 1 || choice > 9) {
+    while (1) {
         result = scanf("%d", &choice);
         if (result==EOF){
             exit(0);
         }
         if (result < 1) {
             fprintf(stderr, "Enter a number 1-9 to choose\n");
+	    while (getchar() != '\n');  // Discard remaining input
+            continue;
         }
+        if (choice >= 1 && choice <= 9) {
+            return choice;
+        }else{
+	    fprintf(stderr, "Choice out of range. Please enter a number between 1 and 9.\n");	
+	}
     }
-
-    return choice;
 }
-
 // Function to handle input of matrices
 void handle_input(double ***matrix1, double ***matrix2, int *rows, int *columns, int *rows2, int *columns2, int *choice) {
     *choice = listOptions();

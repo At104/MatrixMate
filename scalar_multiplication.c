@@ -11,7 +11,7 @@
  * @return The result of the scalar multiplication
  */
 double **scalar_multiplication(int rows, int cols, double scalar, double **matrix) {
-    double **result = malloc(rows * sizeof(double *));
+    double **result = malloc(rows * sizeof(double *)); //allocate space
     for (int i = 0; i < rows; i++) {
         result[i] = malloc(cols * sizeof(double));
     }
