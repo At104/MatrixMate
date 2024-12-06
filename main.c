@@ -20,6 +20,7 @@
  * @return EXIT_SUCCESS if the program runs successfully
  */
 int main(int argc, char *argv[]) {
+    // Initialize variables
     int rows = 0;
     int rows2 = 0;
     int columns = 0;
@@ -28,6 +29,7 @@ int main(int argc, char *argv[]) {
 
     double **matrix1 = NULL;
     double **matrix2 = NULL;
+    // Display help message
 
     if (argc > 1 && strcmp(argv[1], "--help") == 0) {
         printf("Usage: ./MatrixMate\n");
@@ -41,17 +43,17 @@ int main(int argc, char *argv[]) {
         printf("  5               Trace of Matrix 1\n");
         printf("  6               Scalar Multiplication of Matrix 1\n");
         printf("  The user will then be prompted for the number of rows and columns in the matrix.\n");
-        /**
-        printf("  7               AWddition of Matrix 1 and Matrix 2\n");
+        printf("  7               Addition of Matrix 1 and Matrix 2\n");
         printf("  8               Subtraction of Matrix 1 and Matrix 2\n");
-        printf("  9               Dot Product of Matrix 1 and Matrix 2\n");
-        printf("  10              Cross Product of Matrix 1 and Matrix 2\n");
-         */
+        printf("  9               Multiplication of Matrix 1 and Matrix 2\n");
         return EXIT_SUCCESS;
     }
-
+    // Handle input
     handle_input(&matrix1, &matrix2, &rows, &columns, &rows2, &columns2, &choice);
 
+    /**
+     * Switch statement to call the appropriate function based on the user's choice
+     */
     switch (choice) {
         case 1: {
             if (rows != columns) {

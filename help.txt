@@ -9,3 +9,6 @@ Options:
   5               Trace of Matrix 1
   6               Scalar Multiplication of Matrix 1
   The user will then be prompted for the number of rows and columns in the matrix.
+  7               Addition of Matrix 1 and Matrix 2
+  8               Subtraction of Matrix 1 and Matrix 2
+  9               Multiplication of Matrix 1 and Matrix 2
